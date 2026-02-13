@@ -19,7 +19,6 @@
 body{
   background:#0f0f1a;
   color:white;
-  overflow-x:hidden;
 }
 
 canvas{
@@ -58,7 +57,6 @@ section{
   padding:120px 10%;
 }
 
-/* HERO SPECIFIC */
 .hero{
   min-height:100vh;
 }
@@ -158,10 +156,6 @@ h1{
   flex-wrap:wrap;
 }
 
-.stat{
-  text-align:center;
-}
-
 .stat h3{
   font-size:2rem;
   color:#00f5ff;
@@ -192,10 +186,9 @@ h1{
 
 .highlight-card h3{
   color:#00f5ff;
-  font-size:1.8rem;
 }
 
-/* CARDS */
+/* CARD */
 .card{
   background:rgba(255,255,255,0.05);
   padding:20px;
@@ -252,17 +245,14 @@ h1{
   }
 }
 
-/* CONTACT */
 .contact-links a{
   color:#00f5ff;
   text-decoration:none;
-  font-weight:500;
   transition:0.3s;
 }
 
 .contact-links a:hover{
   color:#ff00f5;
-  text-shadow:0 0 10px #ff00f5;
 }
 </style>
 </head>
@@ -332,28 +322,78 @@ h1{
       <p>IAT Rank</p>
     </div>
   </div>
-
 </section>
 
-<!-- KEEP YOUR OTHER SECTIONS BELOW (Education, Skills, Workshops, Contact) -->
+<!-- EDUCATION -->
+<section id="education">
+  <h1>Education Timeline</h1>
+  <div class="timeline">
+    <div class="timeline-item left">
+      <div class="card">
+        <h3>IISER Kolkata</h3>
+        <p>BS-MS (Currently Pursuing)</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="card">
+        <h3>Bhavans Gangabux Kanoria Vidyamandir</h3>
+        <p>Class 12 – 89.8% (CBSE 2025)</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="card">
+        <h3>St. Joseph's College Bowbazar</h3>
+        <p>Class 10 – 94% (ICSE 2023)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h1>Skills</h1>
+  <div class="card">
+    Python | Java | Quantum Computing (Qiskit) <br>
+    DaVinci Resolve Editing <br>
+    Codeforces Rating: <span id="cf-rating">Loading...</span>
+  </div>
+</section>
+
+<!-- WORKSHOPS -->
+<section id="workshops">
+  <h1>Workshops</h1>
+  <div class="card">
+    Julia Workshop – Slashdot IISER Kolkata <br>
+    Qiskit Quantum Computing Workshop – IBM <br>
+    Colour Grading Workshop – Pixel Club & Slashdot
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h1>Connect With Me</h1>
+  <div class="card contact-links">
+    <p>Email: <a href="mailto:berasankhadeep20@gmail.com">berasankhadeep20@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/berasankhadeep20-lang" target="_blank">github.com/berasankhadeep20-lang</a></p>
+    <p>Codeforces: <a href="https://codeforces.com/profile/Ronnie_Deep_04" target="_blank">Ronnie_Deep_04</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/sankhadeep-bera-4a49b436b/" target="_blank">View Profile</a></p>
+    <p>X: <a href="https://x.com/RonnieDeep04" target="_blank">@RonnieDeep04</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/ronnie_deep_04/" target="_blank">@ronnie_deep_04</a></p>
+    <p>YouTube: <a href="https://www.youtube.com/channel/UCEoJkpHvRdqJ6ZBEd6Aj64A" target="_blank">My Channel</a></p>
+  </div>
+</section>
 
 <script>
-// Decimal Counter Support
+// Decimal Counter
 function counter(id,end,decimal=false){
 let el=document.getElementById(id);
 let start=0;
 let step=end/120;
 let interval=setInterval(()=>{
 start+=step;
-if(decimal){
-el.innerText=start.toFixed(2);
-}else{
-el.innerText=Math.floor(start);
-}
-if(start>=end){
-el.innerText=end;
-clearInterval(interval);
-}
+if(decimal){ el.innerText=start.toFixed(2); }
+else{ el.innerText=Math.floor(start); }
+if(start>=end){ el.innerText=end; clearInterval(interval); }
 },20);
 }
 counter("percentile",94.89,true);
