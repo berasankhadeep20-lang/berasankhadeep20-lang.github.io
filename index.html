@@ -29,22 +29,6 @@ canvas{
   z-index:-1;
 }
 
-section{
-  min-height:100vh;
-  padding:100px 10%;
-}
-
-h1{
-  font-size:2.8rem;
-  margin-bottom:20px;
-}
-
-.gradient{
-  background:linear-gradient(90deg,#00f5ff,#ff00f5);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
 /* NAV */
 .nav{
   position:fixed;
@@ -67,6 +51,23 @@ h1{
 
 .nav a:hover{
   color:#ff00f5;
+}
+
+/* SECTIONS */
+section{
+  min-height:100vh;
+  padding:120px 10%;
+}
+
+h1{
+  font-size:2.8rem;
+  margin-bottom:20px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,#00f5ff,#ff00f5);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 /* HERO */
@@ -93,6 +94,7 @@ h1{
   box-shadow:0 0 30px #00f5ff;
   position:relative;
   z-index:2;
+  object-fit:cover;
 }
 
 .orbit{
@@ -217,6 +219,19 @@ h1{
     left:0;
   }
 }
+
+/* CONTACT LINKS */
+.contact-links a{
+  color:#00f5ff;
+  text-decoration:none;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.contact-links a:hover{
+  color:#ff00f5;
+  text-shadow:0 0 10px #ff00f5;
+}
 </style>
 </head>
 
@@ -236,7 +251,6 @@ h1{
 
 <section class="hero">
   <div class="hero-container">
-
     <div class="profile-wrapper">
       <div class="orbit"></div>
       <img src="profile.jpg" class="profile-img">
@@ -255,7 +269,6 @@ h1{
         <a href="mailto:berasankhadeep20@gmail.com" class="btn-outline">Contact</a>
       </div>
     </div>
-
   </div>
 
   <div class="stats">
@@ -283,12 +296,14 @@ h1{
         <p>BS-MS (Currently Pursuing)</p>
       </div>
     </div>
+
     <div class="timeline-item right">
       <div class="card">
         <h3>Bhavans Gangabux Kanoria Vidyamandir</h3>
         <p>Class 12 – 89.8% (CBSE 2025)</p>
       </div>
     </div>
+
     <div class="timeline-item left">
       <div class="card">
         <h3>St. Joseph's College Bowbazar</h3>
@@ -317,59 +332,52 @@ h1{
 </section>
 
 <section id="contact">
-  <h1>Connect</h1>
-  <div class="card">
-    Email: berasankhadeep20@gmail.com <br>
-    GitHub: github.com/berasankhadeep20-lang <br>
-    Codeforces: Ronnie_Deep_04 <br>
-    LinkedIn, X, Instagram, YouTube
+  <h1>Connect With Me</h1>
+  <div class="card contact-links">
+    <p>Email: <a href="mailto:berasankhadeep20@gmail.com">berasankhadeep20@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/berasankhadeep20-lang" target="_blank">github.com/berasankhadeep20-lang</a></p>
+    <p>Codeforces: <a href="https://codeforces.com/profile/Ronnie_Deep_04" target="_blank">Ronnie_Deep_04</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/sankhadeep-bera-4a49b436b/" target="_blank">View Profile</a></p>
+    <p>X (Twitter): <a href="https://x.com/RonnieDeep04" target="_blank">@RonnieDeep04</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/ronnie_deep_04/" target="_blank">@ronnie_deep_04</a></p>
+    <p>YouTube: <a href="https://www.youtube.com/channel/UCEoJkpHvRdqJ6ZBEd6Aj64A" target="_blank">My Channel</a></p>
   </div>
 </section>
 
 <script>
-// Typing Effect
-const textArray=[
-"Aspiring Scientist 🔬",
-"Competitive Programmer 💻",
-"Quantum Computing Enthusiast ⚛️",
-"Content Creator 🎬"
-];
-let typingIndex=0,charIndex=0,isDeleting=false;
-
-function typeEffect(){
-let text=textArray[typingIndex];
-let display=text.substring(0,charIndex);
-document.getElementById("typing").innerHTML=display;
-
-if(!isDeleting && charIndex<text.length){charIndex++;}
-else if(isDeleting && charIndex>0){charIndex--;}
-else if(!isDeleting){isDeleting=true;setTimeout(()=>{},1000);}
-else{isDeleting=false;typingIndex=(typingIndex+1)%textArray.length;}
-
-setTimeout(typeEffect,isDeleting?50:100);
+// Typing Animation
+const roles=["Aspiring Scientist 🔬","Competitive Programmer 💻","Quantum Computing Enthusiast ⚛️","Content Creator 🎬"];
+let i=0,j=0,deleting=false;
+function type(){
+let text=roles[i];
+document.getElementById("typing").innerHTML=text.substring(0,j);
+if(!deleting && j<text.length) j++;
+else if(deleting && j>0) j--;
+else if(!deleting){deleting=true;setTimeout(()=>{},1000);}
+else{deleting=false;i=(i+1)%roles.length;}
+setTimeout(type,deleting?50:100);
 }
-typeEffect();
+type();
 
-// Stats Counter
-function animateValue(id,start,end,duration){
-let range=end-start;
-let current=start;
-let increment=range/(duration/20);
-let obj=document.getElementById(id);
-let timer=setInterval(()=>{
-current+=increment;
-obj.innerText=Math.floor(current);
-if(current>=end){obj.innerText=end;clearInterval(timer);}
+// Counter
+function counter(id,end){
+let el=document.getElementById(id);
+let start=0;
+let step=end/100;
+let interval=setInterval(()=>{
+start+=step;
+el.innerText=Math.floor(start);
+if(start>=end){el.innerText=end;clearInterval(interval);}
 },20);
 }
-animateValue("percentile",0,94,2000);
-animateValue("wbjee",0,1596,2000);
-animateValue("iat",0,3065,2000);
+counter("percentile",94);
+counter("wbjee",1596);
+counter("iat",3065);
 
 // Timeline reveal
-const timelineItems=document.querySelectorAll(".timeline-item");
+const items=document.querySelectorAll(".timeline-item");
 window.addEventListener("scroll",()=>{
-timelineItems.forEach(item=>{
+items.forEach(item=>{
 if(item.getBoundingClientRect().top<window.innerHeight-100){
 item.classList.add("active");
 }
@@ -380,8 +388,7 @@ item.classList.add("active");
 fetch("https://codeforces.com/api/user.info?handles=Ronnie_Deep_04")
 .then(res=>res.json())
 .then(data=>{
-document.getElementById("cf-rating").innerText=
-data.result[0].rating+" ("+data.result[0].rank+")";
+document.getElementById("cf-rating").innerText=data.result[0].rating+" ("+data.result[0].rank+")";
 });
 
 // Particles
@@ -389,11 +396,8 @@ const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
-
 let mouse={x:null,y:null};
-window.addEventListener("mousemove",e=>{
-mouse.x=e.x;mouse.y=e.y;
-});
+window.addEventListener("mousemove",e=>{mouse.x=e.x;mouse.y=e.y;});
 
 class Particle{
 constructor(){
@@ -406,10 +410,9 @@ this.speedY=Math.random()-0.5;
 update(){
 this.x+=this.speedX;
 this.y+=this.speedY;
-
 if(mouse.x && Math.abs(this.x-mouse.x)<100 && Math.abs(this.y-mouse.y)<100){
-this.x+=(this.x-mouse.x)/10;
-this.y+=(this.y-mouse.y)/10;
+this.x+=(this.x-mouse.x)/15;
+this.y+=(this.y-mouse.y)/15;
 }
 }
 draw(){
@@ -421,7 +424,7 @@ ctx.fill();
 }
 
 let particles=[];
-for(let i=0;i<150;i++){particles.push(new Particle());}
+for(let i=0;i<150;i++) particles.push(new Particle());
 
 function animate(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
