@@ -322,6 +322,57 @@ h1{
   }
 
 }
+/* ===== MOBILE FIX ONLY (DO NOT TOUCH DESKTOP) ===== */
+@media (max-width: 768px) {
+
+  section{
+    padding:100px 6%;
+  }
+
+  h1{
+    font-size:2rem;
+  }
+
+  /* Stack hero properly */
+  .hero-container{
+    flex-direction:column;
+    gap:30px;
+  }
+
+  /* Reduce profile size slightly */
+  .profile-wrapper{
+    width:180px;
+    height:180px;
+  }
+
+  .profile-img{
+    width:180px;
+    height:180px;
+  }
+
+  .orbit{
+    width:210px;
+    height:210px;
+  }
+
+  /* Timeline becomes single column */
+  .timeline::before{
+    left:8px;
+    transform:none;
+  }
+
+  .timeline-item{
+    width:100%;
+    left:0 !important;
+    padding-left:30px;
+  }
+
+  /* Prevent contact links overflow */
+  .contact-links a{
+    word-break:break-word;
+  }
+
+}
 
 </style>
 </head>
@@ -441,3 +492,4 @@ function revealTimeline() {
   const triggerBottom = window.innerHeight * 0.85;
   items.forEach(item => {
     const box
+
