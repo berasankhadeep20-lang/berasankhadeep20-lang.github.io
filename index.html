@@ -3,328 +3,418 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sankhadeep Bera</title>
+<title>Sankhadeep Bera | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
 }
 
-html, body{
-    width:100%;
-    height:auto;
-    min-height:100vh;
-    overflow-x:hidden;
-    font-family:'Poppins',sans-serif;
-    background:#0f0f1a;
-    color:white;
-    scroll-behavior:smooth;
+body{
+  background:#0f0f1a;
+  color:white;
 }
 
-/* PARTICLE CANVAS */
-#particles{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-1;
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
 }
 
 /* NAV */
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    padding:20px;
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    background:rgba(0,0,0,0.4);
-    backdrop-filter:blur(10px);
-    z-index:10;
+.nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  padding:15px 10%;
+  display:flex;
+  justify-content:space-between;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  z-index:10;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    transition:0.3s;
+.nav a{
+  color:#00f5ff;
+  text-decoration:none;
+  margin-left:15px;
+  transition:0.3s;
 }
 
-nav a:hover{
-    color:#00f2ff;
+.nav a:hover{
+  color:#ff00f5;
 }
 
 /* SECTIONS */
 section{
-    padding:120px 10%;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+  padding:120px 10%;
+}
+
+.hero{
+  min-height:100vh;
+}
+
+h1{
+  font-size:2.8rem;
+  margin-bottom:20px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,#00f5ff,#ff00f5);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 /* HERO */
-.hero{
-    text-align:center;
+.hero-container{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:60px;
+  flex-wrap:wrap;
+  text-align:center;
 }
 
-.hero h1{
-    font-size:48px;
-    background:linear-gradient(90deg,#00f2ff,#ff00ff);
-    -webkit-background-clip:text;
-    color:transparent;
+.profile-wrapper{
+  position:relative;
+  width:220px;
+  height:220px;
 }
 
-.hero p{
-    margin-top:20px;
-    font-size:18px;
-    opacity:0.8;
+.profile-img{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  border:3px solid #00f5ff;
+  box-shadow:0 0 30px #00f5ff;
+  position:relative;
+  z-index:2;
+  object-fit:cover;
 }
 
-/* HEADINGS */
-h2{
-    font-size:32px;
-    margin-bottom:40px;
-    text-align:center;
+.orbit{
+  position:absolute;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  border:2px dashed #ff00f5;
+  animation:rotate 8s linear infinite;
+  top:-15px;
+  left:-15px;
 }
 
-/* EDUCATION TIMELINE */
-.timeline{
-    max-width:800px;
-    margin:auto;
-    position:relative;
+@keyframes rotate{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
 }
 
-.timeline::before{
-    content:"";
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    width:3px;
-    height:100%;
-    background:#00f2ff;
+.hero-buttons{
+  margin-top:20px;
 }
 
-.timeline-item{
-    padding:20px;
-    width:50%;
-    position:relative;
+.btn, .btn-outline{
+  padding:10px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
 }
 
-.timeline-item.left{
-    left:0;
-    text-align:right;
+.btn{
+  background:linear-gradient(90deg,#00f5ff,#ff00f5);
+  color:black;
 }
 
-.timeline-item.right{
-    left:50%;
+.btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 25px #ff00f5;
 }
 
-.timeline-item::before{
-    content:"";
-    position:absolute;
-    top:25px;
-    width:15px;
-    height:15px;
-    border-radius:50%;
-    background:#ff00ff;
+.btn-outline{
+  border:2px solid #00f5ff;
+  color:#00f5ff;
 }
 
-.timeline-item.left::before{
-    right:-8px;
+.btn-outline:hover{
+  background:#00f5ff;
+  color:black;
 }
 
-.timeline-item.right::before{
-    left:-8px;
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  margin-top:40px;
+  flex-wrap:wrap;
 }
 
-/* CARDS */
+.stat h3{
+  font-size:2rem;
+  color:#00f5ff;
+}
+
+/* HIGHLIGHT BAR */
+.highlight-bar{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.highlight-card{
+  background:rgba(255,255,255,0.05);
+  padding:20px 30px;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+  box-shadow:0 0 20px rgba(0,245,255,0.3);
+}
+
+.highlight-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 35px #ff00f5;
+}
+
+.highlight-card h3{
+  color:#00f5ff;
+}
+
+/* CARD */
 .card{
-    background:rgba(255,255,255,0.05);
-    padding:20px;
-    border-radius:10px;
-    transition:0.3s;
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  margin:20px 0;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 20px #00f2ff;
+  transform:translateY(-8px);
+  box-shadow:0 0 25px #00f5ff;
 }
 
-/* LISTS */
-ul{
-    list-style:none;
+/* TIMELINE */
+.timeline{
+  position:relative;
+  margin-top:50px;
 }
 
-ul li{
-    margin:10px 0;
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:50%;
+  width:4px;
+  height:100%;
+  background:#00f5ff;
+  transform:translateX(-50%);
 }
 
-/* CONTACT */
-.contact a{
-    display:block;
-    margin:10px 0;
-    color:#00f2ff;
-    text-decoration:none;
-    transition:0.3s;
+.timeline-item{
+  width:50%;
+  padding:20px;
+  position:relative;
+  opacity:0;
+  transform:translateY(50px);
+  transition:0.6s ease;
 }
 
-.contact a:hover{
-    color:#ff00ff;
+.timeline-item.left{left:0;}
+.timeline-item.right{left:50%;}
+
+.timeline-item.active{
+  opacity:1;
+  transform:translateY(0);
 }
 
-/* SCROLL REVEAL */
-.reveal{
-    opacity:0;
-    transform:translateY(50px);
-    transition:1s;
+@media(max-width:768px){
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right{
+    width:100%;
+    left:0;
+  }
 }
 
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
+.contact-links a{
+  color:#00f5ff;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.contact-links a:hover{
+  color:#ff00f5;
 }
 </style>
 </head>
+
 <body>
 
 <canvas id="particles"></canvas>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#education">Education</a>
-<a href="#skills">Skills</a>
-<a href="#workshops">Workshops</a>
-<a href="#contact">Contact</a>
-</nav>
+<div class="nav">
+  <div><b>Sankhadeep Bera</b></div>
+  <div>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#workshops">Workshops</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
 
-<!-- HOME -->
-<section id="home" class="hero reveal">
-<h1>Sankhadeep Bera</h1>
-<p>BS-MS Student at IISER Kolkata | Programmer | Competitive Coder | Content Creator</p>
-<p>JEE Mains 2025: 94.89 Percentile | WBJEE 2025 Rank: 1596 | IAT Rank: 3065</p>
+<section class="hero">
+  <div class="hero-container">
+    <div class="profile-wrapper">
+      <div class="orbit"></div>
+      <img src="profile.jpg" class="profile-img">
+    </div>
+
+    <div>
+      <h1>Hello, I'm <span class="gradient">Sankhadeep Bera</span></h1>
+      <h2>BS-MS Student | Programmer | Editor</h2>
+      <p>
+        BS-MS Student at IISER Kolkata <br>
+        JEE Mains 94.89 Percentile | WBJEE Rank 1596 | IAT Rank 3065
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#education" class="btn">View Journey</a>
+        <a href="mailto:berasankhadeep20@gmail.com" class="btn-outline">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <h3 id="percentile">0</h3>
+      <p>JEE Percentile</p>
+    </div>
+    <div class="stat">
+      <h3 id="wbjee">0</h3>
+      <p>WBJEE Rank</p>
+    </div>
+    <div class="stat">
+      <h3 id="iat">0</h3>
+      <p>IAT Rank</p>
+    </div>
+  </div>
+
+  <div class="highlight-bar">
+    <div class="highlight-card">
+      <h3>94.89%</h3>
+      <p>JEE Main 2025</p>
+    </div>
+    <div class="highlight-card">
+      <h3>1596</h3>
+      <p>WBJEE 2025 Rank</p>
+    </div>
+    <div class="highlight-card">
+      <h3>3065</h3>
+      <p>IAT Rank</p>
+    </div>
+  </div>
 </section>
 
 <!-- EDUCATION -->
 <section id="education">
-<h2>Education</h2>
-<div class="timeline">
-
-<div class="timeline-item left reveal">
-<div class="card">
-<h3>IISER Kolkata</h3>
-<p>BS-MS Program (Currently Pursuing)</p>
-</div>
-</div>
-
-<div class="timeline-item right reveal">
-<div class="card">
-<h3>Bhavans Gangabux Kanoria Vidyamandir</h3>
-<p>Class 12 (CBSE 2025) - 89.8%</p>
-</div>
-</div>
-
-<div class="timeline-item left reveal">
-<div class="card">
-<h3>St. Joseph's College, Bowbazar</h3>
-<p>Class 10 (ICSE 2023) - 94%</p>
-</div>
-</div>
-
-</div>
+  <h1>Education Timeline</h1>
+  <div class="timeline">
+    <div class="timeline-item left">
+      <div class="card">
+        <h3>IISER Kolkata</h3>
+        <p>BS-MS (Currently Pursuing)</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="card">
+        <h3>Bhavans Gangabux Kanoria Vidyamandir</h3>
+        <p>Class 12 – 89.8% (CBSE 2025)</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="card">
+        <h3>St. Joseph's College Bowbazar</h3>
+        <p>Class 10 – 94% (ICSE 2023)</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="reveal">
-<h2>Skills</h2>
-<ul>
-<li>✔ Proficient in Python</li>
-<li>✔ Proficient in Java</li>
-<li>✔ Competitive Programming (Codeforces)</li>
-<li>✔ DaVinci Resolve Video Editing & Colour Grading</li>
-</ul>
-<p>Current Codeforces Rating: <span id="cfRating">Loading...</span></p>
+<section id="skills">
+  <h1>Skills</h1>
+  <div class="card">
+    Python | Java | Quantum Computing (Qiskit) <br>
+    DaVinci Resolve Editing
+  </div>
 </section>
 
 <!-- WORKSHOPS -->
-<section id="workshops" class="reveal">
-<h2>Workshops Attended</h2>
-<ul>
-<li>Julia Workshop - Slashdot (Coding Club of IISER Kolkata)</li>
-<li>Qiskit Quantum Computing Workshop - IBM</li>
-<li>Colour Grading Workshop using DaVinci Resolve - Pixel Club & Slashdot</li>
-</ul>
+<section id="workshops">
+  <h1>Workshops</h1>
+  <div class="card">
+    Julia Workshop – Slashdot IISER Kolkata <br>
+    Qiskit Quantum Computing Workshop – IBM <br>
+    Colour Grading Workshop – Pixel Club & Slashdot
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact reveal">
-<h2>Contact</h2>
-<a href="mailto:berasankhadeep20@gmail.com">berasankhadeep20@gmail.com</a>
-<a href="https://github.com/berasankhadeep20-lang" target="_blank">GitHub</a>
-<a href="https://codeforces.com/profile/Ronnie_Deep_04" target="_blank">Codeforces</a>
-<a href="https://www.linkedin.com/in/sankhadeep-bera-4a49b436b/" target="_blank">LinkedIn</a>
-<a href="https://www.instagram.com/ronnie_deep_04/" target="_blank">Instagram</a>
-<a href="https://x.com/RonnieDeep04" target="_blank">Twitter (X)</a>
-<a href="https://www.youtube.com/channel/UCEoJkpHvRdqJ6ZBEd6Aj64A" target="_blank">YouTube</a>
+<section id="contact">
+  <h1>Connect With Me</h1>
+  <div class="card contact-links">
+    <p>Email: <a href="mailto:berasankhadeep20@gmail.com">berasankhadeep20@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/berasankhadeep20-lang" target="_blank">github.com/berasankhadeep20-lang</a></p>
+    <p>Codeforces: <a href="https://codeforces.com/profile/Ronnie_Deep_04" target="_blank">Ronnie_Deep_04</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/sankhadeep-bera-4a49b436b/" target="_blank">View Profile</a></p>
+    <p>X: <a href="https://x.com/RonnieDeep04" target="_blank">@RonnieDeep04</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/ronnie_deep_04/" target="_blank">@ronnie_deep_04</a></p>
+    <p>YouTube: <a href="https://www.youtube.com/channel/UCEoJkpHvRdqJ6ZBEd6Aj64A" target="_blank">My Channel</a></p>
+  </div>
 </section>
 
 <script>
-// SCROLL REVEAL
-window.addEventListener("scroll",()=>{
-document.querySelectorAll(".reveal").forEach(el=>{
-let top=el.getBoundingClientRect().top;
-if(top<window.innerHeight-100){
-el.classList.add("active");
+// Counter
+function counter(id,end,decimal=false){
+let el=document.getElementById(id);
+let start=0;
+let step=end/120;
+let interval=setInterval(()=>{
+start+=step;
+if(decimal){ el.innerText=start.toFixed(2); }
+else{ el.innerText=Math.floor(start); }
+if(start>=end){ el.innerText=end; clearInterval(interval); }
+},20);
 }
-});
-});
+counter("percentile",94.89,true);
+counter("wbjee",1596);
+counter("iat",3065);
 
-// CODEFORCES FETCH
-fetch("https://codeforces.com/api/user.info?handles=Ronnie_Deep_04")
-.then(res=>res.json())
-.then(data=>{
-if(data.status==="OK"){
-document.getElementById("cfRating").innerText=data.result[0].rating || "Unrated";
-}
-});
+// Timeline Reveal
+function revealTimeline() {
+  const items = document.querySelectorAll(".timeline-item");
+  const triggerBottom = window.innerHeight * 0.85;
 
-// PARTICLES
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let particles=[];
-for(let i=0;i<80;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-dx:(Math.random()-0.5),
-dy:(Math.random()-0.5),
-size:2
-});
+  items.forEach(item => {
+    const boxTop = item.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      item.classList.add("active");
+    }
+  });
 }
 
-function animate(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle="#00f2ff";
-particles.forEach(p=>{
-ctx.beginPath();
-ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
-ctx.fill();
-p.x+=p.dx;
-p.y+=p.dy;
-if(p.x<0||p.x>canvas.width)p.dx*=-1;
-if(p.y<0||p.y>canvas.height)p.dy*=-1;
-});
-requestAnimationFrame(animate);
-}
-animate();
+window.addEventListener("scroll", revealTimeline);
+window.addEventListener("load", revealTimeline);
 </script>
 
 </body>
