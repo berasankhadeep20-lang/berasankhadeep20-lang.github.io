@@ -9,228 +9,159 @@
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-  scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:#0f0f1a;
-  color:white;
-  overflow-x:hidden;
+    background:#0f2027;
+    color:white;
+    overflow-x:hidden;
 }
 
-canvas{
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:-1;
+/* ================= PARTICLE CANVAS ================= */
+#particles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    top:0;
+    left:0;
 }
 
-/* NAV */
-.nav{
-  position:fixed;
-  width:100%;
-  top:0;
-  padding:15px 10%;
-  display:flex;
-  justify-content:space-between;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
-  z-index:10;
+/* ================= HERO ================= */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
 }
 
-.nav a{
-  color:#00f5ff;
-  text-decoration:none;
-  margin-left:15px;
-  transition:0.3s;
+.hero h1{
+    font-size:3rem;
+    background:linear-gradient(90deg,#00f5ff,#00ff88);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.nav a:hover{
-  color:#ff00f5;
-}
-
-/* SECTIONS */
-section{
-  min-height:100vh;
-  padding:120px 10%;
-}
-
-h1{
-  font-size:2.8rem;
-  margin-bottom:20px;
-}
-
-.gradient{
-  background:linear-gradient(90deg,#00f5ff,#ff00f5);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-/* HERO */
-.hero-container{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:60px;
-  flex-wrap:wrap;
-  text-align:center;
-}
-
-.profile-wrapper{
-  position:relative;
-  width:220px;
-  height:220px;
-}
-
-.profile-img{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  border:3px solid #00f5ff;
-  box-shadow:0 0 30px #00f5ff;
-  position:relative;
-  z-index:2;
-  object-fit:cover;
-}
-
-.orbit{
-  position:absolute;
-  width:250px;
-  height:250px;
-  border-radius:50%;
-  border:2px dashed #ff00f5;
-  animation:rotate 8s linear infinite;
-  top:-15px;
-  left:-15px;
-}
-
-@keyframes rotate{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
-}
-
-.hero-buttons{
-  margin-top:20px;
-}
-
-.btn, .btn-outline{
-  padding:10px 25px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.3s;
+.hero p{
+    margin-top:20px;
+    font-size:1.2rem;
+    max-width:700px;
 }
 
 .btn{
-  background:linear-gradient(90deg,#00f5ff,#ff00f5);
-  color:black;
+    margin-top:30px;
+    padding:12px 25px;
+    border-radius:30px;
+    background:#00f5ff;
+    color:black;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
 }
 
 .btn:hover{
-  transform:scale(1.1);
-  box-shadow:0 0 25px #ff00f5;
+    transform:scale(1.1);
+    box-shadow:0 0 20px #00f5ff;
 }
 
-.btn-outline{
-  border:2px solid #00f5ff;
-  color:#00f5ff;
+/* ================= ACHIEVEMENTS ================= */
+
+section{
+    padding:80px 10%;
+    text-align:center;
 }
 
-.btn-outline:hover{
-  background:#00f5ff;
-  color:black;
+.section-title{
+    font-size:2.5rem;
+    margin-bottom:50px;
+    background:linear-gradient(90deg,#00f5ff,#00ff88);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-/* STATS */
-.stats{
-  display:flex;
-  justify-content:center;
-  gap:50px;
-  margin-top:40px;
-  flex-wrap:wrap;
+.highlight-bar{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-bottom:60px;
 }
 
-.stat{
-  text-align:center;
+.highlight-card{
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(0,255,255,0.3);
 }
 
-.stat h3{
-  font-size:2rem;
-  color:#00f5ff;
+.highlight-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 40px rgba(0,255,255,0.8);
 }
 
-/* CARDS */
-.card{
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:15px;
-  margin:20px 0;
-  backdrop-filter:blur(10px);
-  transition:0.3s;
+.highlight-card h3{
+    font-size:2rem;
+    color:#00ffcc;
 }
 
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 25px #00f5ff;
+.counter-container{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
 }
 
-/* TIMELINE */
-.timeline{
-  position:relative;
-  margin-top:50px;
+.counter{
+    font-size:3rem;
+    font-weight:bold;
+    color:#00f5ff;
 }
 
-.timeline::before{
-  content:'';
-  position:absolute;
-  left:50%;
-  width:4px;
-  height:100%;
-  background:#00f5ff;
-  transform:translateX(-50%);
+/* ================= ABOUT ================= */
+
+.about p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
 }
 
-.timeline-item{
-  width:50%;
-  padding:20px;
-  position:relative;
-  opacity:0;
-  transform:translateY(50px);
-  transition:0.6s;
+/* ================= CONTACT ================= */
+
+.contact a{
+    display:inline-block;
+    margin:10px 15px;
+    color:#00f5ff;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
 }
 
-.timeline-item.left{left:0;}
-.timeline-item.right{left:50%;}
-
-.timeline-item.active{
-  opacity:1;
-  transform:translateY(0);
+.contact a:hover{
+    color:#00ff88;
+    text-shadow:0 0 10px #00ff88;
 }
 
-@media(max-width:768px){
-  .timeline-item,
-  .timeline-item.left,
-  .timeline-item.right{
-    width:100%;
-    left:0;
-  }
+/* ================= SCROLL REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all 0.8s ease;
 }
 
-/* CONTACT LINKS */
-.contact-links a{
-  color:#00f5ff;
-  text-decoration:none;
-  font-weight:500;
-  transition:0.3s;
-}
-
-.contact-links a:hover{
-  color:#ff00f5;
-  text-shadow:0 0 10px #ff00f5;
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
 }
 </style>
 </head>
@@ -239,199 +170,165 @@ h1{
 
 <canvas id="particles"></canvas>
 
-<div class="nav">
-  <div><b>Sankhadeep Bera</b></div>
-  <div>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#workshops">Workshops</a>
-    <a href="#contact">Contact</a>
-  </div>
-</div>
-
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-container">
-    <div class="profile-wrapper">
-      <div class="orbit"></div>
-      <img src="profile.jpg" class="profile-img">
-    </div>
-
-    <div>
-      <h1>Hello, I'm <span class="gradient">Sankhadeep Bera</span></h1>
-      <h2><span id="typing"></span></h2>
-      <p>
-        BS-MS Student at IISER Kolkata <br>
-        JEE Mains 94.89 Percentile | WBJEE Rank 1596 | IAT Rank 3065
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#education" class="btn">View Journey</a>
-        <a href="mailto:berasankhadeep20@gmail.com" class="btn-outline">Contact</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="stats">
-    <div class="stat">
-      <h3 id="percentile">0</h3>
-      <p>JEE Percentile</p>
-    </div>
-    <div class="stat">
-      <h3 id="wbjee">0</h3>
-      <p>WBJEE Rank</p>
-    </div>
-    <div class="stat">
-      <h3 id="iat">0</h3>
-      <p>IAT Rank</p>
-    </div>
-  </div>
+    <h1>Sankhadeep Bera</h1>
+    <p>
+        BS-MS Student at IISER Kolkata | JEE Main 94.89 Percentile | WBJEE Rank 1596 | IAT Rank 3065 |
+        Python & Java Developer | Competitive Programmer | Content Creator
+    </p>
+    <a href="#achievements" class="btn">Explore More</a>
 </section>
 
-<section id="education">
-  <h1>Education Timeline</h1>
-  <div class="timeline">
-    <div class="timeline-item left">
-      <div class="card">
-        <h3>IISER Kolkata</h3>
-        <p>BS-MS (Currently Pursuing)</p>
-      </div>
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="reveal">
+    <h2 class="section-title">Academic Highlights</h2>
+
+    <div class="highlight-bar">
+        <div class="highlight-card">
+            <h3>94.89%</h3>
+            <p>JEE Main 2025</p>
+        </div>
+        <div class="highlight-card">
+            <h3>1596</h3>
+            <p>WBJEE 2025 Rank</p>
+        </div>
+        <div class="highlight-card">
+            <h3>3065</h3>
+            <p>IAT Rank</p>
+        </div>
     </div>
 
-    <div class="timeline-item right">
-      <div class="card">
-        <h3>Bhavans Gangabux Kanoria Vidyamandir</h3>
-        <p>Class 12 – 89.8% (CBSE 2025)</p>
-      </div>
+    <div class="counter-container">
+        <div>
+            <div class="counter" data-target="94.89">0</div>
+            <p>JEE Percentile</p>
+        </div>
+        <div>
+            <div class="counter" data-target="1596">0</div>
+            <p>WBJEE Rank</p>
+        </div>
+        <div>
+            <div class="counter" data-target="3065">0</div>
+            <p>IAT Rank</p>
+        </div>
     </div>
-
-    <div class="timeline-item left">
-      <div class="card">
-        <h3>St. Joseph's College Bowbazar</h3>
-        <p>Class 10 – 94% (ICSE 2023)</p>
-      </div>
-    </div>
-  </div>
 </section>
 
-<section id="skills">
-  <h1>Skills</h1>
-  <div class="card">
-    Python | Java | Quantum Computing (Qiskit) <br>
-    DaVinci Resolve Editing <br>
-    Codeforces Rating: <span id="cf-rating">Loading...</span>
-  </div>
+<!-- ABOUT -->
+<section class="about reveal">
+    <h2 class="section-title">About Me</h2>
+    <p>
+        I am currently pursuing BS-MS at IISER Kolkata.
+        I am proficient in Python and Java.
+        I have created simple Python games available on my GitHub.
+        I also have editing skills in DaVinci Resolve and attended multiple workshops including
+        Julia Workshop (Slashdot IISER Kolkata), IBM Qiskit Quantum Computing Workshop,
+        and Colour Grading Workshop by Pixel Club Movie Club.
+    </p>
 </section>
 
-<section id="workshops">
-  <h1>Workshops</h1>
-  <div class="card">
-    Julia Workshop – Slashdot IISER Kolkata <br>
-    Qiskit Quantum Computing Workshop – IBM <br>
-    Colour Grading Workshop – Pixel Club & Slashdot
-  </div>
-</section>
+<!-- CONTACT -->
+<section class="contact reveal">
+    <h2 class="section-title">Contact Me</h2>
 
-<section id="contact">
-  <h1>Connect With Me</h1>
-  <div class="card contact-links">
-    <p>Email: <a href="mailto:berasankhadeep20@gmail.com">berasankhadeep20@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/berasankhadeep20-lang" target="_blank">github.com/berasankhadeep20-lang</a></p>
-    <p>Codeforces: <a href="https://codeforces.com/profile/Ronnie_Deep_04" target="_blank">Ronnie_Deep_04</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/sankhadeep-bera-4a49b436b/" target="_blank">View Profile</a></p>
-    <p>X (Twitter): <a href="https://x.com/RonnieDeep04" target="_blank">@RonnieDeep04</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/ronnie_deep_04/" target="_blank">@ronnie_deep_04</a></p>
-    <p>YouTube: <a href="https://www.youtube.com/channel/UCEoJkpHvRdqJ6ZBEd6Aj64A" target="_blank">My Channel</a></p>
-  </div>
+    <a href="mailto:berasankhadeep20@gmail.com" target="_blank">Email</a>
+    <a href="https://github.com/berasankhadeep20-lang" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/sankhadeep-bera-4a49b436b/" target="_blank">LinkedIn</a>
+    <a href="https://codeforces.com/profile/Ronnie_Deep_04" target="_blank">Codeforces</a>
+    <a href="https://www.youtube.com/channel/UCEoJkpHvRdqJ6ZBEd6Aj64A" target="_blank">YouTube</a>
+    <a href="https://x.com/RonnieDeep04" target="_blank">Twitter (X)</a>
+    <a href="https://www.instagram.com/ronnie_deep_04/" target="_blank">Instagram</a>
+
 </section>
 
 <script>
-// Typing Animation
-const roles=["Aspiring Scientist 🔬","Competitive Programmer 💻","Quantum Computing Enthusiast ⚛️","Content Creator 🎬"];
-let i=0,j=0,deleting=false;
-function type(){
-let text=roles[i];
-document.getElementById("typing").innerHTML=text.substring(0,j);
-if(!deleting && j<text.length) j++;
-else if(deleting && j>0) j--;
-else if(!deleting){deleting=true;setTimeout(()=>{},1000);}
-else{deleting=false;i=(i+1)%roles.length;}
-setTimeout(type,deleting?50:100);
-}
-type();
 
-// Counter
-function counter(id,end){
-let el=document.getElementById(id);
-let start=0;
-let step=end/100;
-let interval=setInterval(()=>{
-start+=step;
-el.innerText=Math.floor(start);
-if(start>=end){el.innerText=end;clearInterval(interval);}
-},20);
-}
-counter("percentile",94);
-counter("wbjee",1596);
-counter("iat",3065);
+/* ================= PARTICLES ================= */
 
-// Timeline reveal
-const items=document.querySelectorAll(".timeline-item");
-window.addEventListener("scroll",()=>{
-items.forEach(item=>{
-if(item.getBoundingClientRect().top<window.innerHeight-100){
-item.classList.add("active");
-}
-});
-});
-
-// Codeforces API
-fetch("https://codeforces.com/api/user.info?handles=Ronnie_Deep_04")
-.then(res=>res.json())
-.then(data=>{
-document.getElementById("cf-rating").innerText=data.result[0].rating+" ("+data.result[0].rank+")";
-});
-
-// Particles
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
-let mouse={x:null,y:null};
-window.addEventListener("mousemove",e=>{mouse.x=e.x;mouse.y=e.y;});
+
+let particlesArray=[];
+const numberOfParticles=100;
 
 class Particle{
-constructor(){
-this.x=Math.random()*canvas.width;
-this.y=Math.random()*canvas.height;
-this.size=Math.random()*3;
-this.speedX=Math.random()-0.5;
-this.speedY=Math.random()-0.5;
-}
-update(){
-this.x+=this.speedX;
-this.y+=this.speedY;
-if(mouse.x && Math.abs(this.x-mouse.x)<100 && Math.abs(this.y-mouse.y)<100){
-this.x+=(this.x-mouse.x)/15;
-this.y+=(this.y-mouse.y)/15;
-}
-}
-draw(){
-ctx.fillStyle="#00f5ff";
-ctx.beginPath();
-ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-ctx.fill();
-}
+    constructor(){
+        this.x=Math.random()*canvas.width;
+        this.y=Math.random()*canvas.height;
+        this.size=Math.random()*3+1;
+        this.speedX=Math.random()*1-0.5;
+        this.speedY=Math.random()*1-0.5;
+    }
+    update(){
+        this.x+=this.speedX;
+        this.y+=this.speedY;
+        if(this.x>canvas.width || this.x<0) this.speedX*=-1;
+        if(this.y>canvas.height || this.y<0) this.speedY*=-1;
+    }
+    draw(){
+        ctx.fillStyle="#00f5ff";
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctx.fill();
+    }
 }
 
-let particles=[];
-for(let i=0;i<150;i++) particles.push(new Particle());
+function init(){
+    particlesArray=[];
+    for(let i=0;i<numberOfParticles;i++){
+        particlesArray.push(new Particle());
+    }
+}
 
 function animate(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-particles.forEach(p=>{p.update();p.draw();});
-requestAnimationFrame(animate);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particlesArray.forEach(p=>{
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animate);
 }
+
+init();
 animate();
+
+/* ================= COUNTER ================= */
+
+const counters=document.querySelectorAll('.counter');
+
+counters.forEach(counter=>{
+    const updateCount=()=>{
+        const target=parseFloat(counter.getAttribute('data-target'));
+        const count=parseFloat(counter.innerText);
+        const increment=target/200;
+
+        if(count<target){
+            counter.innerText=(count+increment).toFixed(2);
+            setTimeout(updateCount,10);
+        }else{
+            counter.innerText=target;
+        }
+    };
+    updateCount();
+});
+
+/* ================= SCROLL REVEAL ================= */
+
+function reveal(){
+    let reveals=document.querySelectorAll(".reveal");
+    reveals.forEach(r=>{
+        let windowHeight=window.innerHeight;
+        let elementTop=r.getBoundingClientRect().top;
+        if(elementTop<windowHeight-100){
+            r.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll",reveal);
+
 </script>
 
 </body>
