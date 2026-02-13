@@ -126,6 +126,8 @@ h1{
   text-decoration:none;
   font-weight:600;
   transition:0.3s;
+  display:inline-block;
+  margin:5px;
 }
 
 .btn{
@@ -155,6 +157,7 @@ h1{
   gap:50px;
   margin-top:40px;
   flex-wrap:wrap;
+  text-align:center;
 }
 
 .stat h3{
@@ -178,6 +181,7 @@ h1{
   backdrop-filter:blur(10px);
   transition:0.3s;
   box-shadow:0 0 20px rgba(0,245,255,0.3);
+  text-align:center;
 }
 
 .highlight-card:hover{
@@ -237,24 +241,88 @@ h1{
   transform:translateY(0);
 }
 
-@media(max-width:768px){
-  .timeline-item,
-  .timeline-item.left,
-  .timeline-item.right{
-    width:100%;
-    left:0;
-  }
-}
-
 .contact-links a{
   color:#00f5ff;
   text-decoration:none;
   transition:0.3s;
+  word-break:break-word;
 }
 
 .contact-links a:hover{
   color:#ff00f5;
 }
+
+/* ========================= */
+/* 📱 MOBILE OPTIMIZATION */
+/* ========================= */
+
+@media(max-width:768px){
+
+  .nav{
+    padding:15px 5%;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  .nav div:last-child{
+    margin-top:10px;
+  }
+
+  section{
+    padding:100px 5%;
+  }
+
+  h1{
+    font-size:2rem;
+  }
+
+  .hero-container{
+    gap:30px;
+  }
+
+  .profile-wrapper{
+    width:180px;
+    height:180px;
+  }
+
+  .profile-img{
+    width:180px;
+    height:180px;
+  }
+
+  .orbit{
+    width:210px;
+    height:210px;
+    top:-15px;
+    left:-15px;
+  }
+
+  .stats{
+    gap:25px;
+  }
+
+  .stat h3{
+    font-size:1.6rem;
+  }
+
+  .highlight-bar{
+    gap:20px;
+  }
+
+  .timeline::before{
+    left:8px;
+    transform:none;
+  }
+
+  .timeline-item{
+    width:100%;
+    left:0 !important;
+    padding-left:30px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -350,39 +418,6 @@ h1{
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <h1>Skills</h1>
-  <div class="card">
-    Python | Java | Quantum Computing (Qiskit) <br>
-    DaVinci Resolve Editing
-  </div>
-</section>
-
-<!-- WORKSHOPS -->
-<section id="workshops">
-  <h1>Workshops</h1>
-  <div class="card">
-    Julia Workshop – Slashdot IISER Kolkata <br>
-    Qiskit Quantum Computing Workshop – IBM <br>
-    Colour Grading Workshop – Pixel Club & Slashdot
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h1>Connect With Me</h1>
-  <div class="card contact-links">
-    <p>Email: <a href="mailto:berasankhadeep20@gmail.com">berasankhadeep20@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/berasankhadeep20-lang" target="_blank">github.com/berasankhadeep20-lang</a></p>
-    <p>Codeforces: <a href="https://codeforces.com/profile/Ronnie_Deep_04" target="_blank">Ronnie_Deep_04</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/sankhadeep-bera-4a49b436b/" target="_blank">View Profile</a></p>
-    <p>X: <a href="https://x.com/RonnieDeep04" target="_blank">@RonnieDeep04</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/ronnie_deep_04/" target="_blank">@ronnie_deep_04</a></p>
-    <p>YouTube: <a href="https://www.youtube.com/channel/UCEoJkpHvRdqJ6ZBEd6Aj64A" target="_blank">My Channel</a></p>
-  </div>
-</section>
-
 <script>
 // Counter
 function counter(id,end,decimal=false){
@@ -404,18 +439,5 @@ counter("iat",3065);
 function revealTimeline() {
   const items = document.querySelectorAll(".timeline-item");
   const triggerBottom = window.innerHeight * 0.85;
-
   items.forEach(item => {
-    const boxTop = item.getBoundingClientRect().top;
-    if (boxTop < triggerBottom) {
-      item.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", revealTimeline);
-window.addEventListener("load", revealTimeline);
-</script>
-
-</body>
-</html>
+    const box
