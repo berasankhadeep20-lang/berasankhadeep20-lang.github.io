@@ -255,6 +255,7 @@ h1{
 .contact-links a:hover{
   color:#ff00f5;
 }
+
 </style>
 </head>
 
@@ -266,6 +267,7 @@ h1{
   <div><b>Sankhadeep Bera</b></div>
   <div>
     <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#workshops">Workshops</a>
     <a href="#contact">Contact</a>
@@ -281,7 +283,7 @@ h1{
 
     <div>
       <h1>Hello, I'm <span class="gradient">Sankhadeep Bera</span></h1>
-      <h2>BS-MS Student | Programmer | Editor</h2>
+      <h2>BS-MS Student | Programmer | AI Enthusiast</h2>
       <p>
         BS-MS Student at IISER Kolkata <br>
         JEE Mains 94.89 Percentile | WBJEE Rank 1596 | IAT Rank 3065
@@ -350,12 +352,32 @@ h1{
   </div>
 </section>
 
+<!-- PROJECTS -->
+<section id="projects">
+  <h1>Projects</h1>
+
+  <div class="card">
+    <h3>AI Football Match Outcome Predictor</h3>
+    <p>
+    Machine learning model that predicts outcomes of football matches using historical match statistics and data analysis.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Stock Market LLM</h3>
+    <p>
+    Built a Large Language Model based system capable of answering stock market related queries and providing financial insights.
+    </p>
+  </div>
+
+</section>
+
 <!-- SKILLS -->
 <section id="skills">
   <h1>Skills</h1>
   <div class="card">
-    Python | Java | Quantum Computing (Qiskit) <br>
-    DaVinci Resolve Editing
+    Python | Java | Machine Learning | Quantum Computing (Qiskit) <br>
+    Data Analysis | DaVinci Resolve Editing
   </div>
 </section>
 
@@ -384,7 +406,7 @@ h1{
 </section>
 
 <script>
-// Counter
+
 function counter(id,end,decimal=false){
 let el=document.getElementById(id);
 let start=0;
@@ -400,7 +422,6 @@ counter("percentile",94.89,true);
 counter("wbjee",1596);
 counter("iat",3065);
 
-// Timeline Reveal
 function revealTimeline() {
   const items = document.querySelectorAll(".timeline-item");
   const triggerBottom = window.innerHeight * 0.85;
@@ -415,6 +436,7 @@ function revealTimeline() {
 
 window.addEventListener("scroll", revealTimeline);
 window.addEventListener("load", revealTimeline);
+
 </script>
 
 </body>
