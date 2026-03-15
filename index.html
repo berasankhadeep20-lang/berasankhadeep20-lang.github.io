@@ -1,254 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sankhadeep Bera | AI Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:#0f0f1a;
-color:white;
-}
-
-.nav{
-position:fixed;
-width:100%;
-top:0;
-padding:15px 10%;
-display:flex;
-justify-content:space-between;
-background:rgba(0,0,0,0.7);
-z-index:10;
-}
-
-.nav a{
-color:#00f5ff;
-text-decoration:none;
-margin-left:15px;
-}
-
-section{
-padding:120px 10%;
-}
-
-h1{
-font-size:2.8rem;
-margin-bottom:20px;
-}
-
-.gradient{
-background:linear-gradient(90deg,#00f5ff,#ff00f5);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:15px;
-margin:20px 0;
-backdrop-filter:blur(10px);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 25px #00f5ff;
-}
-
-.contact-links a{
-color:#00f5ff;
-text-decoration:none;
+.contact-links a:hover{
+color:#ff00f5;
 }
 
 </style>
-
 </head>
 
-<body>
-
-<div class="nav">
+@@ -266,6 +267,7 @@
 <div><b>Sankhadeep Bera</b></div>
-
 <div>
 <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
+<a href="#workshops">Workshops</a>
 <a href="#contact">Contact</a>
-</div>
+@@ -281,7 +283,7 @@
 
-</div>
-
-<section>
-
-<h1>Hello I'm <span class="gradient">Sankhadeep Bera</span></h1>
-
+<div>
+<h1>Hello, I'm <span class="gradient">Sankhadeep Bera</span></h1>
+      <h2>BS-MS Student | Programmer | Editor</h2>
+      <h2>BS-MS Student | Programmer | AI Enthusiast</h2>
 <p>
 BS-MS Student at IISER Kolkata <br>
-AI Developer | Machine Learning Enthusiast
-</p>
-
+JEE Mains 94.89 Percentile | WBJEE Rank 1596 | IAT Rank 3065
+@@ -350,12 +352,32 @@ <h3>St. Joseph's College Bowbazar</h3>
+</div>
 </section>
 
-<section id="education">
-
-<h1>Education</h1>
-
-<div class="card">
-
-<h3>IISER Kolkata</h3>
-
-<p>BS-MS Dual Degree Program (2025 - Present)</p>
-
-</div>
-
-<div class="card">
-
-<h3>Bhavans Gangabux Kanoria Vidyamandir</h3>
-
-<p>Class XII CBSE – 89.8% (2025)</p>
-
-</div>
-
-<div class="card">
-
-<h3>St Joseph's College Bowbazar</h3>
-
-<p>Class X ICSE – 94% (2023)</p>
-
-</div>
-
-</section>
-
-<section id="skills">
-
-<h1>Skills</h1>
-
-<div class="card">
-
-Python • Java • Machine Learning • Data Analysis • NLP • Git • DaVinci Resolve
-
-</div>
-
-</section>
-
+<!-- PROJECTS -->
 <section id="projects">
+  <h1>Projects</h1>
 
-<h1>Projects</h1>
+  <div class="card">
+    <h3>AI Football Match Outcome Predictor</h3>
+    <p>
+    Machine learning model that predicts outcomes of football matches using historical match statistics and data analysis.
+    </p>
+  </div>
 
-
-<div class="card">
-
-<h3>F1 AI Race Predictor</h3>
-
-<p>
-
-Machine learning model designed to predict Formula 1 race outcomes using historical race data, driver performance metrics and circuit statistics.
-
-</p>
-
-<p>
-
-Repository:
-
-<a href="https://github.com/berasankhadeep20-lang/F1-AI-Predictor" target="_blank">
-
-github.com/berasankhadeep20-lang/F1-AI-Predictor
-
-</a>
-
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>AI Football Match Outcome Predictor</h3>
-
-<p>
-
-Machine learning model that predicts football match outcomes using historical match statistics and predictive analytics.
-
-</p>
-
-<p>
-
-Repository:
-
-<a href="https://github.com/berasankhadeep20-lang/AI-Football-Match-Outcome-Predictor" target="_blank">
-
-github.com/berasankhadeep20-lang/AI-Football-Match-Outcome-Predictor
-
-</a>
-
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>LLM For Stock Market</h3>
-
-<p>
-
-Large Language Model based project that analyzes financial data and generates intelligent responses to stock market queries.
-
-</p>
-
-<p>
-
-Repository:
-
-<a href="https://github.com/berasankhadeep20-lang/LLM-For-stock-market" target="_blank">
-
-github.com/berasankhadeep20-lang/LLM-For-stock-market
-
-</a>
-
-</p>
-
-</div>
+  <div class="card">
+    <h3>Stock Market LLM</h3>
+    <p>
+    Built a Large Language Model based system capable of answering stock market related queries and providing financial insights.
+    </p>
+  </div>
 
 </section>
 
-<section id="contact">
-
-<h1>Contact</h1>
-
-<div class="card contact-links">
-
-<p>Email: <a href="mailto:berasankhadeep20@gmail.com">berasankhadeep20@gmail.com</a></p>
-
-<p>GitHub: <a href="https://github.com/berasankhadeep20-lang">github.com/berasankhadeep20-lang</a></p>
-
-<p>Codeforces: <a href="https://codeforces.com/profile/Ronnie_Deep_04">Ronnie_Deep_04</a></p>
-
-<p>LinkedIn: <a href="https://www.linkedin.com/in/sankhadeep-bera-4a49b436b/">LinkedIn</a></p>
-
-<p>YouTube: <a href="https://www.youtube.com/@05sankhadeepbera78">YouTube Channel</a></p>
-
+<!-- SKILLS -->
+<section id="skills">
+<h1>Skills</h1>
+<div class="card">
+    Python | Java | Quantum Computing (Qiskit) <br>
+    DaVinci Resolve Editing
+    Python | Java | Machine Learning | Quantum Computing (Qiskit) <br>
+    Data Analysis | DaVinci Resolve Editing
 </div>
-
 </section>
+
+@@ -384,7 +406,7 @@ <h1>Connect With Me</h1>
+</section>
+
+<script>
+// Counter
+
+function counter(id,end,decimal=false){
+let el=document.getElementById(id);
+let start=0;
+@@ -400,7 +422,6 @@ <h1>Connect With Me</h1>
+counter("wbjee",1596);
+counter("iat",3065);
+
+// Timeline Reveal
+function revealTimeline() {
+const items = document.querySelectorAll(".timeline-item");
+const triggerBottom = window.innerHeight * 0.85;
+@@ -415,6 +436,7 @@ <h1>Connect With Me</h1>
+
+window.addEventListener("scroll", revealTimeline);
+window.addEventListener("load", revealTimeline);
+
+</script>
 
 </body>
-</html>
