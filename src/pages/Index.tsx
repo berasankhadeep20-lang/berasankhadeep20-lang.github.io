@@ -46,6 +46,8 @@ import ContestTracker from "@/components/features/ContestTracker";
 import WeakTopicAnalyzer from "@/components/features/WeakTopicAnalyzer";
 import RatingPredictor from "@/components/features/RatingPredictor";
 import ProblemOfTheDay from "@/components/features/ProblemOfTheDay";
+import F1Widget from "@/components/F1Widget";
+import TerminalEasterEgg from "@/components/TerminalEasterEgg";
 
 const Index = () => {
   useEffect(() => {
@@ -65,6 +67,7 @@ const Index = () => {
       <InteractiveEffects />
       <CommandPalette />
       <KonamiEasterEgg />
+      <TerminalEasterEgg />
       <FeedbackBox />
       <RecruiterMode />
       <Navbar />
@@ -73,6 +76,7 @@ const Index = () => {
       <EducationSection />
       <SkillsSection />
       <ProjectsSection />
+      <F1Widget />
       <SportsPredictors />
       <GitHubFeed />
       <ContributionGlobe />
