@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { HeatmapSkeleton, RepoCardSkeleton } from "@/components/SkeletonCard";
 import { motion } from "framer-motion";
 import { Github, GitCommit, Star, GitFork, Calendar, ExternalLink } from "lucide-react";
 

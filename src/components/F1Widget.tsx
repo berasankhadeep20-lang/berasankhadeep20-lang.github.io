@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { F1RowSkeleton } from "@/components/SkeletonCard";
 import { motion } from "framer-motion";
 import { Trophy, Clock, Flag } from "lucide-react";
 

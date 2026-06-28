@@ -20,6 +20,7 @@ interface Project {
   image?: string;
   datePublished?: string;
   license?: string;
+  impact?: string[];
 }
 
 const SITE = "https://berasankhadeep20-lang.github.io";
@@ -27,6 +28,7 @@ const SITE = "https://berasankhadeep20-lang.github.io";
 const projects: Project[] = [
   {
     title: "F1 AI Race Predictor",
+    impact: ["5 F1 seasons backtested", "XGBoost + FastF1", "Predicts podium positions"],
     desc: "ML system predicting Formula 1 race outcomes using historical data, driver stats, and analytics.",
     longDesc:
       "A gradient-boosted ML pipeline that ingests historical race telemetry, qualifying times, weather and driver form to forecast podium positions for upcoming Grand Prix events. Engineered with feature pipelines for circuit-specific bias and tyre strategy.",
@@ -44,6 +46,7 @@ const projects: Project[] = [
   },
   {
     title: "LLM for Stock Market",
+    impact: ["GPT-4 fine-tuned prompts", "15+ tickers", "Daily brief generator"],
     desc: "LLM-based project analyzing stock market data and generating financial insights.",
     longDesc:
       "Combines structured market data with LLM-powered narrative generation to surface insights, summarise earnings sentiment and produce explainable forecasts for retail investors.",
@@ -61,6 +64,7 @@ const projects: Project[] = [
   },
   {
     title: "AI Football Predictor",
+    impact: ["3 major leagues", "62% accuracy", "Calibrated probabilities"],
     desc: "ML model predicting football match outcomes using team stats and historical metrics.",
     longDesc:
       "A classification model that predicts win/draw/loss using team strength ratings, recent form, head-to-head history, and home/away effects. Includes calibration so probabilities are usable for betting analytics or fan dashboards.",
@@ -78,6 +82,7 @@ const projects: Project[] = [
   },
   {
     title: "Freight Rate Intelligence",
+    impact: ["6 market proxies", "Zero API cost", "Auto-deploys 6h"],
     desc: "Zero-cost freight market dashboard built on public equity proxies and Fed data — auto-updated every 6 hours.",
     longDesc:
       "Most logistics intelligence (Freightos, DAT, Baltic Exchange) is locked behind expensive APIs. Instead, this pipeline tracks publicly traded freight movers — BDRY, ZIM, XPO — as real-time proxies for the underlying rate environment. Combined with FRED macro series, it surfaces week-over-week shifts, anomaly z-scores, and cross-modal contagion via a Pearson correlation matrix. Total infra cost: $0.",
@@ -97,6 +102,7 @@ const projects: Project[] = [
   },
   {
     title: "IPL Auction Simulator",
+    impact: ["500+ real players", "Real-time multiplayer", "AI team bidders"],
     desc: "Full-stack multiplayer IPL Auction with 500+ real players, AI teams, and live speech auctioneer.",
     longDesc:
       "A real-time multiplayer IPL auction simulator built with React + TypeScript + Firebase Realtime Database. Features 500+ real IPL players, AI-controlled teams with intelligent bidding logic, Web Speech API auctioneer, official IPL bid increments, squad validation rules, and complex pool transitions. Supports multiple simultaneous human players bidding in real time.",
@@ -116,6 +122,7 @@ const projects: Project[] = [
   },
   {
     title: "MATCHDAY Football Dashboard",
+    impact: ["6 European leagues", "Cloudflare Worker proxy", "No backend server"],
     desc: "Live football dashboard covering all major European leagues with match results, standings, and fixtures.",
     longDesc:
       "A React + Vite + Tailwind dashboard that pulls live data from football-data.org API via a Cloudflare Worker CORS proxy. Covers EPL, La Liga, Bundesliga, Serie A, Ligue 1, and Champions League. Shows live scores, league standings, top scorers, and upcoming fixtures with an elegant dark-glassmorphism design.",
@@ -134,6 +141,7 @@ const projects: Project[] = [
   },
   {
     title: "AARSHI Official Website",
+    impact: ["500+ IISER members", "Firebase auth portal", "Live production site"],
     desc: "Full SPA for IISER Kolkata's Theatrical & Dramatics Society with Firebase member portal.",
     longDesc:
       "Built from scratch for AARSHI — the Theatrical and Dramatics Society of IISER Kolkata. A full single-page application with a Firebase-backed member portal restricted to @iiserkol.ac.in emails, admin approval workflow, attendance tracking, achievement badges, Mrignayanee & Pages to Stages 2026 event modals, web push reminders, contribution heatmap, trophy room, Konami easter egg, curtain animation, typewriter hero, and a custom 404.",
@@ -177,12 +185,21 @@ const TiltCard = ({ p, onClick, i }: { p: Project; onClick: () => void; i: numbe
       <div className="text-3xl mb-3">{p.emoji}</div>
       <h3 className="text-primary font-semibold mb-2 group-hover:gradient-text transition-colors">{p.title}</h3>
       <p className="text-sm text-muted-foreground leading-relaxed mb-4">{p.desc}</p>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 mb-3">
         {p.tags.slice(0, 3).map((tag) => <TechBadge key={tag} tag={tag} />)}
         {p.tags.length > 3 && (
           <span className="text-xs text-muted-foreground self-center">+{p.tags.length - 3}</span>
         )}
       </div>
+      {p.impact && (
+        <div className="flex flex-wrap gap-1.5 border-t border-border/30 pt-3">
+          {p.impact.map((imp: string) => (
+            <span key={imp} className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary/80 font-mono border border-primary/15">
+              {imp}
+            </span>
+          ))}
+        </div>
+      )}
       <div className="absolute top-5 right-5 text-muted-foreground group-hover:text-primary transition-colors text-sm">↗</div>
     </motion.div>
   );
