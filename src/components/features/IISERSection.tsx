@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { GraduationCap, BookOpen, Quote, MapPin, FlaskConical } from "lucide-react";
 import LabNotebook from "./LabNotebook";
+import CourseMap from "./CourseMap";
 
 const SEMESTERS = [
   {
@@ -64,36 +65,11 @@ const IISERSection = () => {
         {tab === "lab" && <LabNotebook />}
 
         {tab === "courses" && (
-          <div className="glass rounded-2xl p-6">
-            <div className="grid md:grid-cols-3 gap-4">
-              {SEMESTERS.map((s) => (
-                <div
-                  key={s.sem}
-                  className={`rounded-xl p-4 border transition-all ${
-                    s.status === "current"
-                      ? "border-primary/50 bg-primary/5"
-                      : s.status === "done"
-                      ? "border-green-500/30 bg-green-500/5"
-                      : "border-border/40"
-                  }`}
-                >
-                  <div className="flex justify-between items-baseline mb-3">
-                    <span className="text-sm font-semibold">{s.sem}</span>
-                    <span className="text-[10px] text-muted-foreground font-mono">{s.year}</span>
-                  </div>
-                  <ul className="space-y-1.5">
-                    {s.courses.map((c) => (
-                      <li key={c} className="text-xs text-muted-foreground">• {c}</li>
-                    ))}
-                  </ul>
-                  <div className="mt-3 text-[10px] font-mono">
-                    {s.status === "current" && <span className="text-primary">● in progress</span>}
-                    {s.status === "done"    && <span className="text-green-400">✓ completed</span>}
-                    {s.status === "upcoming"&& <span className="text-muted-foreground">○ upcoming</span>}
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="glass rounded-2xl p-5">
+            <p className="text-xs text-muted-foreground mb-5">
+              Click any course node to see details. Arrows show prerequisites. Dashed lines = future courses.
+            </p>
+            <CourseMap />
           </div>
         )}
 

@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AnimatePresence, motion } from "framer-motion";
 import Index from "./pages/Index.tsx";
+import Hire from "./pages/Hire.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 import { ThemeProvider } from "@/contexts/ThemeContext";
@@ -26,6 +27,7 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           <Route path="/" element={<Index />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/hire" element={<Hire />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>

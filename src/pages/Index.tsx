@@ -48,6 +48,10 @@ import RatingPredictor from "@/components/features/RatingPredictor";
 import ProblemOfTheDay from "@/components/features/ProblemOfTheDay";
 import F1Widget from "@/components/F1Widget";
 import TerminalEasterEgg from "@/components/TerminalEasterEgg";
+import F1InternshipTracker from "@/components/features/F1InternshipTracker";
+import TelemetryVisualiser from "@/components/features/TelemetryVisualiser";
+import TyreDegradationModel from "@/components/features/TyreDegradationModel";
+import SatelliteMLShowcase from "@/components/features/SatelliteMLShowcase";
 
 const Index = () => {
   useEffect(() => {
@@ -76,8 +80,15 @@ const Index = () => {
       <EducationSection />
       <SkillsSection />
       <ProjectsSection />
+      {/* F1 / Motorsport cluster */}
       <F1Widget />
+      <TelemetryVisualiser />
+      <TyreDegradationModel />
+      <F1InternshipTracker />
+      {/* Sports & ML */}
       <SportsPredictors />
+      <SatelliteMLShowcase />
+      {/* GitHub & Coding */}
       <GitHubFeed />
       <ContributionGlobe />
       <CodingStats />
@@ -86,10 +97,12 @@ const Index = () => {
       <ProblemOfTheDay />
       <WeakTopicAnalyzer />
       <RatingPredictor />
+      {/* IISER / Academic */}
       <IISERSection />
       <ResearchSection />
       <ArxivReadingList />
       <ArxivRecommender />
+      {/* Physics demos */}
       <QuantumPlayground />
       <BlochSphereExplorer />
       <QuantumCircuitBuilder />
@@ -101,10 +114,12 @@ const Index = () => {
       <LatticeBoltzmann />
       <IsingModel />
       <FourierExplorer />
+      {/* Blog & content */}
       <BlogSection />
       <WorkshopsSection />
       <DoublePendulum />
       <PersonalKolkata />
+      {/* Resume / contact */}
       <ResumeSection />
       <LiveLLMDemo />
       <TerminalSection />
